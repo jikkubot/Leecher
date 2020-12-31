@@ -22,5 +22,7 @@ RUN chmod 0775 /app/gautam/gclone
 
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 uninstall appdirs
+RUN pip3 install appdirs
 COPY . .
 CMD ["bash","start.sh"]
