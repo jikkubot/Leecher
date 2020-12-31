@@ -50,3 +50,4 @@ class Config(object):
     UPLOAD_AS_DOC = os.environ.get("UPLOAD_AS_DOC", "True")
     PYTDL_COMMAND_G = os.environ.get("PYTDL_COMMAND_G", "pytdlgshsjs")
     LOG_COMMAND = os.environ.get("LOG_COMMAND", "log@TorrentFileBot")
+    CLONE_COMMAND_G = os.environ.get("CLONE_COMMAND_G", "gcloneghhg")
