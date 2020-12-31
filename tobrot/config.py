@@ -2,14 +2,14 @@ import os
 
 class Config(object):
     # get a token from @BotFather
-    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "1302353323:AAG8ZbN1pROUItTStkHy5IX5yF2VfHGawmE")
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "1238889434:AAGWeUiNCfPVqi-mVYZdEzU0KUO7IgNPg-A)
     # The Telegram API things
     APP_ID = int(os.environ.get("APP_ID", 2354487))
     API_HASH = os.environ.get("API_HASH")
     OWNER_ID = int(os.environ.get("OWNER_ID", 1314948019))
     # Get these values from my.telegram.org
     # to store the channel ID who are authorized to use the bot
-    AUTH_CHANNEL = set(int(x) for x in os.environ.get("AUTH_CHANNEL", "-1001246626769").split())
+    AUTH_CHANNEL = set(int(x) for x in os.environ.get("AUTH_CHANNEL", "-1001405615740").split())
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = "./DOWNLOADS"
     # Telegram maximum file upload size
@@ -35,18 +35,18 @@ class Config(object):
     # add offensive API
     TG_OFFENSIVE_API = os.environ.get("TG_OFFENSIVE_API", None)
     CUSTOM_FILE_NAME = os.environ.get("CUSTOM_FILE_NAME", "")
-    LEECH_COMMAND = os.environ.get("LEECH_COMMAND", "leechvideo@DownloadAsVideoBot")
-    YTDL_COMMAND = os.environ.get("YTDL_COMMAND", "ytdlvideo@DownloadAsVideoBot")
+    LEECH_COMMAND = os.environ.get("LEECH_COMMAND", "leechvideo@TorrentFileBot")
+    YTDL_COMMAND = os.environ.get("YTDL_COMMAND", "ytdlvideo@TorrentFileBot")
     RCLONE_CONFIG = os.environ.get("RCLONE_CONFIG", "")
     DESTINATION_FOLDER = os.environ.get("DESTINATION_FOLDER", "TorrentLeech-Gdrive")
     GLEECH_COMMAND = os.environ.get("GLEECH_COMMAND", "gleechgdhhsha")
     INDEX_LINK = os.environ.get("INDEX_LINK", "")
     TELEGRAM_LEECH_COMMAND_G = os.environ.get("TELEGRAM_LEECH_COMMAND_G", "tleechhwhshs")
-    CANCEL_COMMAND_G = os.environ.get("CANCEL_COMMAND_G", "cancel@DownloadAsVideoBot")
+    CANCEL_COMMAND_G = os.environ.get("CANCEL_COMMAND_G", "cancel@TorrentFileBot")
     GET_SIZE_G = os.environ.get("GET_SIZE_G", "getsizebsbs")
-    STATUS_COMMAND = os.environ.get("STATUS_COMMAND", "status@DownloadAsVideoBot")
-    SAVE_THUMBNAIL = os.environ.get("SAVE_THUMBNAIL", "savethumbnail@DownloadAsVideoBot")
-    CLEAR_THUMBNAIL = os.environ.get("CLEAR_THUMBNAIL", "clearthumbnail@DownloadAsVideoBot")
+    STATUS_COMMAND = os.environ.get("STATUS_COMMAND", "status@TorrentFileBot")
+    SAVE_THUMBNAIL = os.environ.get("SAVE_THUMBNAIL", "savethumbnail@TorrentFileBot")
+    CLEAR_THUMBNAIL = os.environ.get("CLEAR_THUMBNAIL", "clearthumbnail@TorrentFileBot")
     UPLOAD_AS_DOC = os.environ.get("UPLOAD_AS_DOC", "False")
     PYTDL_COMMAND_G = os.environ.get("PYTDL_COMMAND_G", "pytdlgshsjs")
-    LOG_COMMAND = os.environ.get("LOG_COMMAND", "log@DownloadAsVideoBot")
+    LOG_COMMAND = os.environ.get("LOG_COMMAND", "log@TorrentFileBot")
