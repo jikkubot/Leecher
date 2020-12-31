@@ -2,7 +2,7 @@ import os
 
 class Config(object):
     # get a token from @BotFather
-    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "1238889434:AAGWeUiNCfPVqi-mVYZdEzU0KUO7IgNPg-A")
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "1379071868:AAFqt6tcV-GI_i2ItaNaOPzY9jYcvzzgmow")
     # The Telegram API things
     APP_ID = int(os.environ.get("APP_ID", 2354487))
     API_HASH = os.environ.get("API_HASH")
@@ -35,19 +35,19 @@ class Config(object):
     # add offensive API
     TG_OFFENSIVE_API = os.environ.get("TG_OFFENSIVE_API", None)
     CUSTOM_FILE_NAME = os.environ.get("CUSTOM_FILE_NAME", "")
-    LEECH_COMMAND = os.environ.get("LEECH_COMMAND", "leechfile@TorrentFileBot")
-    YTDL_COMMAND = os.environ.get("YTDL_COMMAND", "ytdlfile@TorrentFileBot")
+    LEECH_COMMAND = os.environ.get("LEECH_COMMAND", "leechfile@TorrentAsFileBot")
+    YTDL_COMMAND = os.environ.get("YTDL_COMMAND", "ytdlfile@TorrentAsFileBot"")
     RCLONE_CONFIG = os.environ.get("RCLONE_CONFIG", "")
     DESTINATION_FOLDER = os.environ.get("DESTINATION_FOLDER", "TorrentLeech-Gdrive")
     GLEECH_COMMAND = os.environ.get("GLEECH_COMMAND", "gleechgdhhsha")
     INDEX_LINK = os.environ.get("INDEX_LINK", "")
     TELEGRAM_LEECH_COMMAND_G = os.environ.get("TELEGRAM_LEECH_COMMAND_G", "tleechhwhshs")
-    CANCEL_COMMAND_G = os.environ.get("CANCEL_COMMAND_G", "cancel@TorrentFileBot")
+    CANCEL_COMMAND_G = os.environ.get("CANCEL_COMMAND_G", "cancel@TorrentAsFileBot")
     GET_SIZE_G = os.environ.get("GET_SIZE_G", "getsizebsbs")
-    STATUS_COMMAND = os.environ.get("STATUS_COMMAND", "status@TorrentFileBot")
-    SAVE_THUMBNAIL = os.environ.get("SAVE_THUMBNAIL", "savethumbnail@TorrentFileBot")
-    CLEAR_THUMBNAIL = os.environ.get("CLEAR_THUMBNAIL", "clearthumbnail@TorrentFileBot")
+    STATUS_COMMAND = os.environ.get("STATUS_COMMAND", "status@TorrentAsFileBot")
+    SAVE_THUMBNAIL = os.environ.get("SAVE_THUMBNAIL", "savethumbnail@TorrentAsFileBot")
+    CLEAR_THUMBNAIL = os.environ.get("CLEAR_THUMBNAIL", "clearthumbnail@TorrentAsFileBot")
     UPLOAD_AS_DOC = os.environ.get("UPLOAD_AS_DOC", "True")
     PYTDL_COMMAND_G = os.environ.get("PYTDL_COMMAND_G", "pytdlgshsjs")
-    LOG_COMMAND = os.environ.get("LOG_COMMAND", "log@TorrentFileBot")
+    LOG_COMMAND = os.environ.get("LOG_COMMAND", "log@TorrentAsFileBot")
     CLONE_COMMAND_G = os.environ.get("CLONE_COMMAND_G", "gcloneghhg")
