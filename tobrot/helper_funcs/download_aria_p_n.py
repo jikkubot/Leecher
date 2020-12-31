@@ -244,7 +244,7 @@ async def call_apropriate_function(
         if message_to_send != "":
             mention_req_user = f"<a href='tg://user?id={user_id}'>Files Successfully Downloaded</a>\n\n"
             message_to_send = mention_req_user + message_to_send
-            message_to_send = message_to_send + "\n\n" + "#Uploaded ©️ @FlixBots"
+            message_to_send = message_to_send + "\n\n" + "#Uploaded\n\n<b>Powered By @FlixBots</b>"
         else:
             message_to_send = "<i>FAILED</i> to upload files. 😞😞"
         await user_message.reply_text(
@@ -414,7 +414,7 @@ async def call_apropriate_function_t(
     if message_to_send != "":
         mention_req_user = f"<a href='tg://user?id={user_id}'>Files Successfully Downloaded</a>\n\n"
         message_to_send = mention_req_user + message_to_send
-        message_to_send = message_to_send + "\n\n" + "#Uploaded"
+        message_to_send = message_to_send + "\n\n" + "#Uploaded\n\n<b>Powered By @FlixBots</b>"
     else:
         message_to_send = "<i>FAILED</i> to upload files. 😞😞"
     await sent_message_to_update_tg_p.reply_to_message.reply_text(
