@@ -242,9 +242,9 @@ async def call_apropriate_function(
             message_to_send += "</a>"
             message_to_send += "\n"
         if message_to_send != "":
-            mention_req_user = f"<a href='tg://user?id={user_id}'>Your Requested Files</a>\n\n"
+            mention_req_user = f"<a href='tg://user?id={user_id}'>Files Successfully Downloaded</a>\n\n"
             message_to_send = mention_req_user + message_to_send
-            message_to_send = message_to_send + "\n\n" + "#uploads ©️ @FIMYFLX"
+            message_to_send = message_to_send + "\n\n" + "#Uploaded ©️ @FlixBots"
         else:
             message_to_send = "<i>FAILED</i> to upload files. 😞😞"
         await user_message.reply_text(
@@ -412,9 +412,9 @@ async def call_apropriate_function_t(
         message_to_send += "</a>"
         message_to_send += "\n"
     if message_to_send != "":
-        mention_req_user = f"<a href='tg://user?id={user_id}'>Your Requested Files</a>\n\n"
+        mention_req_user = f"<a href='tg://user?id={user_id}'>Files Successfully Downloaded</a>\n\n"
         message_to_send = mention_req_user + message_to_send
-        message_to_send = message_to_send + "\n\n" + "#uploads"
+        message_to_send = message_to_send + "\n\n" + "#Uploaded"
     else:
         message_to_send = "<i>FAILED</i> to upload files. 😞😞"
     await sent_message_to_update_tg_p.reply_to_message.reply_text(
@@ -447,7 +447,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                 except:
                     pass
                 #
-                msg = f"\n<b>Name :</b> `{downloading_dir_name}`\n<b>Status :</b> <b>{file.status}</b>"\n<b>Downloading :</b> 〘 `{file.progress_string()}` 〙"
+                msg = f"\n<b>Name :</b> `{downloading_dir_name}`\n<b>Status :</b> <b>{file.status}</b>\n<b>Downloading :</b> 〘 `{file.progress_string()}` 〙"
                 msg += f"\n<b>Speed </b>: 〘 `{file.download_speed_string()}` 〙"
                 msg += f"\n<b>Total Size</b>: 〘 `{file.total_length_string()}` 〙"
 
