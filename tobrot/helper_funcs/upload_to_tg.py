@@ -79,7 +79,7 @@ async def upload_to_tg(
         new_m_esg = message
         if not message.photo:
             new_m_esg = await message.reply_text(
-                f"Found {len(directory_contents)} files <a href='tg://user?id={from_user}'>🤒</a>",
+                f"Found {len(directory_contents)} files <a href='tg://user?id={from_user}'>😇</a>",
                 quote=True
                 # reply_to_message_id=message.message_id
             )
