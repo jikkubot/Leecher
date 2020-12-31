@@ -460,7 +460,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                 msg += f"\n\n @FLIXBOTS"
                 inline_keyboard = []
                 ikeyboard = []
-                ikeyboard.append(InlineKeyboardButton("❌ Cancel ❌", callback_data=(f"cancel {gid}").encode("UTF-8")))
+                ikeyboard.append(InlineKeyboardButton("Cancel ❌", callback_data=(f"cancel {gid}").encode("UTF-8")))
                 inline_keyboard.append(ikeyboard)
                 reply_markup = InlineKeyboardMarkup(inline_keyboard)
                 #msg += reply_markup
@@ -477,7 +477,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
             await check_progress_for_dl(aria2, gid, event, previous_message)
         else:
             await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-            await event.edit(f"Downloaded Successfully: `{file.name}` 🤒")
+            await event.edit(f"<b>File(s) Downloaded Successfully :</b> \n\n`{file.name}` 😇")
             return True
     except aria2p.client.ClientException:
         pass
