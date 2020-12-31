@@ -278,7 +278,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
             message_for_progress_display = message
             if not edit_media:
                 message_for_progress_display = await message.reply_text(
-                    "starting upload of {}".format(os.path.basename(local_file_name))
+                    "<b>Starting Upload Of</b> \n\n{}".format(os.path.basename(local_file_name))
                 )
             if local_file_name.upper().endswith(("MKV", "MP4", "WEBM")):
                 metadata = extractMetadata(createParser(local_file_name))
@@ -351,7 +351,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
                         #reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "trying to upload",
+                            "<b>Trying To Upload</b>\n",
                             message_for_progress_display,
                             start_time
                         )
@@ -407,7 +407,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
                         #reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "trying to upload",
+                            "<b>Trying To Upload</b>\n",
                             message_for_progress_display,
                             start_time
                         )
@@ -449,7 +449,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
                         #reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "trying to upload",
+                            "<b>Trying To Upload</b>\n",
                             message_for_progress_display,
                             start_time
                         )
