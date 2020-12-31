@@ -110,7 +110,7 @@ async def upload_to_tg(
             await i_m_s_g.edit_text(
                 f"Detected File Size: {d_f_s} 😡\n"
                 f"<code>{ba_se_file_name}</code> splitted into {number_of_files} files.\n"
-                "trying to upload to Telegram, now ..."
+                "<b>Trying To Upload To Telegram Now ...</b>"
             )
             for le_file in totlaa_sleif:
                 # recursion: will this FAIL somewhere?
@@ -252,7 +252,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
         	thumb = thumb_image_path
         message_for_progress_display = message
         if not edit_media:
-            message_for_progress_display = await message.reply_text("starting upload of {}".format(os.path.basename(local_file_name)))
+            message_for_progress_display = await message.reply_text("<b>Starting Upload Of</b> \n\n`{}`".format(os.path.basename(local_file_name)))
         sent_message = await message.reply_document(
             document=local_file_name,
     	    # quote=True,
@@ -263,7 +263,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
     	    #reply_to_message_id=message.reply_to_message.message_id,
             progress=progress_for_pyrogram,
             progress_args=(
-                "trying to upload",
+                "<b>Trying To Upload</b>\n",
                 message_for_progress_display,
                 start_time
             )
@@ -278,7 +278,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
             message_for_progress_display = message
             if not edit_media:
                 message_for_progress_display = await message.reply_text(
-                    "<b>Starting Upload Of</b> \n\n{}".format(os.path.basename(local_file_name))
+                    "<b>Starting Upload Of</b> \n\n`{}`".format(os.path.basename(local_file_name))
                 )
             if local_file_name.upper().endswith(("MKV", "MP4", "WEBM")):
                 metadata = extractMetadata(createParser(local_file_name))
