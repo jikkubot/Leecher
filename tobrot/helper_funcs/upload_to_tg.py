@@ -12,7 +12,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 import asyncio
-import pyrogram.types as pyrogram
+import pyrogram
 import os
 import time
 import subprocess
@@ -39,7 +39,7 @@ from tobrot import (
     UPLOAD_AS_DOC
 )
 
-from pyrogram.types import (
+from pyrogram import (
     InputMediaDocument,
     InputMediaVideo,
     InputMediaAudio
