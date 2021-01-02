@@ -12,7 +12,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 import asyncio
-import pyrogram
+import pyrogram.types as pyrogram
 import os
 import time
 import subprocess
@@ -39,7 +39,7 @@ from tobrot import (
     UPLOAD_AS_DOC
 )
 
-from pyrogram import (
+from pyrogram.types import (
     InputMediaDocument,
     InputMediaVideo,
     InputMediaAudio
@@ -79,7 +79,7 @@ async def upload_to_tg(
         new_m_esg = message
         if not message.photo:
             new_m_esg = await message.reply_text(
-                f"Found {len(directory_contents)} files <a href='tg://user?id={from_user}'>😇</a>",
+                "Found {} files".format(len(directory_contents)),
                 quote=True
                 # reply_to_message_id=message.message_id
             )
@@ -97,9 +97,9 @@ async def upload_to_tg(
             LOGGER.info("TODO")
             d_f_s = humanbytes(os.path.getsize(local_file_name))
             i_m_s_g = await message.reply_text(
-                "Telegram does not support uploading this file.\n"
-                f"Detected File Size: {d_f_s} 😡\n"
-                "\n🤖 trying to split the files 🌝🌝🌚"
+                "Telegram does not support uploading this huge file.\n"
+                f"Detected File Size: {d_f_s} \n"
+                "\nTrying to split the files "
             )
             splitted_dir = await split_large_files(local_file_name)
             totlaa_sleif = os.listdir(splitted_dir)
@@ -108,9 +108,9 @@ async def upload_to_tg(
             LOGGER.info(totlaa_sleif)
             ba_se_file_name = os.path.basename(local_file_name)
             await i_m_s_g.edit_text(
-                f"Detected File Size: {d_f_s} 😡\n"
+                f"Detected File Size: {d_f_s} \n"
                 f"<code>{ba_se_file_name}</code> splitted into {number_of_files} files.\n"
-                "<b>Trying To Upload To Telegram Now ...</b>"
+                "Trying to upload to Telegram, now ..."
             )
             for le_file in totlaa_sleif:
                 # recursion: will this FAIL somewhere?
@@ -137,7 +137,7 @@ async def upload_to_tg(
 
 async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
     await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-    del_it = await message.edit_text(f"<a href='tg://user?id={g_id}'>🔊</a> Now Uploading to ☁️ Cloud!!!")
+    del_it = await message.edit_text("Now Uploading ...")
     #subprocess.Popen(('touch', 'rclone.conf'), stdout = subprocess.PIPE)
     with open('rclone.conf', 'a', newline="\n", encoding = 'utf-8') as fole:
         fole.write("[DRIVE]\n")
@@ -171,16 +171,17 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
         gjay = size(os.path.getsize(file_upload))
         LOGGER.info(gjay)
         button = []
-        button.append([pyrogram.InlineKeyboardButton(text="☁️ CloudUrl ☁️", url=f"{gau_link}")])
+        #button.append([pyrogram.InlineKeyboardButton(text="Google Drive Link", url=f"{gau_link}")])
         if INDEX_LINK:
             indexurl = f"{INDEX_LINK}/{file_upload}"
             tam_link = requests.utils.requote_uri(indexurl)
             LOGGER.info(tam_link)
-            button.append([pyrogram.InlineKeyboardButton(text="ℹ️ IndexUrl ℹ️", url=f"{tam_link}")])
+            button.append([pyrogram.InlineKeyboardButton(text="☁️ Fast Download ☁️", url=f"{tam_link}")])
         button_markup = pyrogram.InlineKeyboardMarkup(button)
+        indexurl = f"{INDEX_LINK}/{file_upload}"
+        tam_link = requests.utils.requote_uri(indexurl)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-        await messa_ge.reply_text(f"🤖: {file_upload} has been Uploaded successfully to your Cloud <a href='tg://user?id={g_id}'>🤒</a>\n📀 Size: {gjay}", reply_markup=button_markup)
-        #await message.edit_text(f"""🤖: {file_upload} has been Uploaded successfully to your cloud 🤒\n\n☁️ Cloud URL:  <a href="{gau_link}">FileLink</a>\nℹ️ Direct URL:  <a href="{tam_link}">IndexLink</a>""")
+        await messa_ge.reply_text(f"**Fast Download Link Generated !! \n\nFile Name:** `{file_upload}` \n\n**File Size:** {gjay} \n\n**Link:** \n`{tam_link}`", parse_mode="markdown", reply_markup=button_markup)
         os.remove(file_upload)
         await del_it.delete()
     else:
@@ -214,15 +215,17 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
         gjay = size(getFolderSize(file_upload))
         LOGGER.info(gjay)
         button = []
-        button.append([pyrogram.InlineKeyboardButton(text="☁️ CloudUrl ☁️", url=f"{gau_link}")])
+        #button.append([pyrogram.InlineKeyboardButton(text="Google Drive Link", url=f"{gau_link}")])
         if INDEX_LINK:
             indexurl = f"{INDEX_LINK}/{file_upload}/"
             tam_link = requests.utils.requote_uri(indexurl)
             LOGGER.info(tam_link)
-            button.append([pyrogram.InlineKeyboardButton(text="ℹ️ IndexUrl ℹ️", url=f"{tam_link}")])
+            button.append([pyrogram.InlineKeyboardButton(text="☁️ Fast Download ☁️", url=f"{tam_link}")])
         button_markup = pyrogram.InlineKeyboardMarkup(button)
+        indexurl = f"{INDEX_LINK}/{file_upload}"
+        tam_link = requests.utils.requote_uri(indexurl)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-        await messa_ge.reply_text(f"🤖: Folder has been Uploaded successfully to {tt} in your Cloud <a href='tg://user?id={g_id}'>🤒</a>\n📀 Size: {gjay}", reply_markup=button_markup)
+        await messa_ge.reply_text(f"**Fast Download Link Generated !! \n\nFile Name:** `{file_upload}` \n\n**File Size:** {gjay} \n\n**Link:** \n`{tam_link}`", parse_mode="markdown", reply_markup=button_markup)
         #await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
         #await messa_ge.reply_text(f"""🤖: Folder has been Uploaded successfully to {tt} in your cloud 🤒\n\n☁️ Cloud URL:  <a href="{gau_link}">FolderLink</a>\nℹ️ Index Url:. <a href="{tam_link}">IndexLink</a>""")
         shutil.rmtree(file_upload)
@@ -252,7 +255,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
         	thumb = thumb_image_path
         message_for_progress_display = message
         if not edit_media:
-            message_for_progress_display = await message.reply_text("<b>Starting Upload Of</b> \n\n`{}`".format(os.path.basename(local_file_name)))
+            message_for_progress_display = await message.reply_text("Starting upload of {}".format(os.path.basename(local_file_name)))
         sent_message = await message.reply_document(
             document=local_file_name,
     	    # quote=True,
@@ -263,7 +266,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
     	    #reply_to_message_id=message.reply_to_message.message_id,
             progress=progress_for_pyrogram,
             progress_args=(
-                "<b>Trying To Upload</b>\n",
+                "Trying to upload!",
                 message_for_progress_display,
                 start_time
             )
@@ -278,7 +281,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
             message_for_progress_display = message
             if not edit_media:
                 message_for_progress_display = await message.reply_text(
-                    "<b>Starting Upload Of</b> \n\n`{}`".format(os.path.basename(local_file_name))
+                    "Starting upload of {}".format(os.path.basename(local_file_name))
                 )
             if local_file_name.upper().endswith(("MKV", "MP4", "WEBM")):
                 metadata = extractMetadata(createParser(local_file_name))
@@ -351,7 +354,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
                         #reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "<b>Trying To Upload</b>\n",
+                            "Trying to upload!",
                             message_for_progress_display,
                             start_time
                         )
@@ -407,7 +410,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
                         #reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "<b>Trying To Upload</b>\n",
+                            "Trying to upload!",
                             message_for_progress_display,
                             start_time
                         )
@@ -449,7 +452,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
                         #reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "<b>Trying To Upload</b>\n",
+                            "Trying to upload!",
                             message_for_progress_display,
                             start_time
                         )
